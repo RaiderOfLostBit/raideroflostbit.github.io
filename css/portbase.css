@@ -116,6 +116,28 @@ a:hover {
     background-color: rgba(255,255,255,1);
 }
 
+.site-back {
+    z-index: 555;
+    position: absolute;
+    margin-top: 2rem;
+    display: none;
+}
+
+.site-back .nav-link {
+    font-weight: 600;
+    color: var(--font-color);
+    font-family: var(--font-family-secondary);
+    cursor: pointer;
+
+    text-align: center;
+    background-color: var(--font-color-dark);
+    border-radius: 4px;
+}
+
+.site-back .nav-link:hover {
+    color: var(--secondary-color);
+}
+
 .site-body {
     min-height: 80vh;
     position: relative;

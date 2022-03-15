@@ -1,18 +1,21 @@
-/** Code run on site load */
-
-// Static variables
+/** STATIC CONTENT LINKAGE */
+// Include all content pages here, which can be loaded dynamically
 const contentLinks =
-    [{file: "portprojects.html", navClass: 'nav-portfolio', default: true, showBack: false},
-    {file: "portabout.html", navClass: 'nav-about', default: false, showBack: false}];
+    [{file: "portprojects.html", hash: 'portfolio', navClass: 'nav-portfolio', default: true, showBack: false, postFunc: 'postLoadProjects'},
+    {file: "portabout.html", hash: 'about', navClass: 'nav-about', default: false, showBack: false, postFunc: ''}];
 
+/** GLOBAL VARS */
+// Static
 const loadingScreenFadeTime = 300;
 
-// Dynamic set variables
-let currentContentFile;
+// Dynamic
+let currentContent;
+let prevContent;
 let xhttp;
 let bIsLoading = false;
 let bLoadingScreen = false;
 
+/** INITIAL CODE */
 document.addEventListener("DOMContentLoaded", function() {
     //The first argument are the elements to which the plugin shall be initialized
     //The second argument has to be at least a empty object or a object with your desired options
@@ -23,8 +26,7 @@ window.addEventListener('resize', setInnerBodyMinHeight);
 window.addEventListener('load', setInnerBodyMinHeight);
 window.addEventListener('load', loadDefaultContent);
 
-/** Page Functions */
-
+/** BASE FUNCTIONS */
 /* Sets min-size of inner-body so footer is always on screen if not enough content on site. */
 function setInnerBodyMinHeight() {
     const viewportSize = getViewportSize();
@@ -103,15 +105,41 @@ function loadContentAjaxInternal(filename) {
             }
 
             // set the content we are currently displaying
-            currentContentFile = filename;
+            prevContent = currentContent;
+
+            let bFound = false;
+            for(let i=0; i < contentLinks.length; i++)
+            {
+                if(contentLinks[i].file === filename)
+                {
+                    currentContent = contentLinks[i];
+                    bFound = true;
+                    break;
+                }
+            }
+
+            // Error if content is not defined
+            if(!bFound)
+            {
+                console.error("Requested content has no static content linkage! Requested content file: '" + filename + "'");
+            }
+
+            // update the page url
+            const siteURL = window.location.href.split('#')[0];
+            window.location.href = siteURL + "#" + currentContent.hash;
 
             // Adjust footer
             setInnerBodyMinHeight();
 
-            // Check if we have to change the active tab
+            // Execute content based site updates
             updateActiveTab();
+            updateShowBack();
 
-            // Check if we have to show the additional back button
+            // Execute Post-Function if set
+            if(currentContent.postFunc && currentContent.postFunc !== '')
+            {
+                callFunctionByName(currentContent.postFunc, window);
+            }
 
             // Remove the loading overlay
             const animDuration = removeLoadingOverlay();
@@ -167,7 +195,7 @@ function updateActiveTab() {
     let navClass;
     for(let h = 0; h < contentLinks.length; h++)
     {
-        if(contentLinks[h].file === currentContentFile)
+        if(contentLinks[h].file === currentContent.file)
         {
             navClass = contentLinks[h].navClass;
             break;
@@ -186,8 +214,22 @@ function updateActiveTab() {
     }
 }
 
-/** Helper Functions */
+function updateShowBack() {
+    if(currentContent && prevContent)
+    {
+        let backEl = document.getElementById('site_back')
+        backEl.style.display = currentContent.showBack ? "block" : "none";
+    }
+}
 
+function navigateBack() {
+    if(prevContent)
+    {
+        loadContent(prevContent.file);
+    }
+}
+
+/** HELPER FUNCTIONS */
 /* Returns the current height and width of the viewport */
 function getViewportSize() {
     const width = window.innerWidth

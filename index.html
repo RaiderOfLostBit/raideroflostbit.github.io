@@ -11,8 +11,8 @@
     <link href="css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="css/vendor/bootstrap/font_bootstrap-icons.css" rel="stylesheet" >
     <link type="text/css" href="css/vendor/overlayscrollbar/OverlayScrollbars.min.css" rel="stylesheet"/>
-    <link href="css/portfoliobase.css" rel="stylesheet">
-    <link href="css/portfolioindex.css" rel="stylesheet">
+    <link href="css/portbase.css" rel="stylesheet">
+    <link href="css/portprojects.css" rel="stylesheet">
 
     <!-- Favicons
     <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
@@ -36,8 +36,8 @@
                 </div>
                 <div class="col-6">
                     <div class="navbar nav-head w-100 h-100 align-items-center justify-content-end desktop-only">
-                        <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html')">Portfolio</a>
-                        <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html')">About</a>
+                        <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html');">Portfolio</a>
+                        <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html');">About</a>
                     </div>
                     <div class="navbar nav-head-mobile w-100 h-100 align-items-center justify-content-end mobile-only">
                         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMobile" aria-controls="navbarsMobile" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,8 +50,19 @@
     </div>
     <div id="navbarsMobile" class="site-mobile-navbar navbar-collapse collapse mobile-only">
         <div class="container-lg">
-            <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html')">Portfolio</a>
-            <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html')">About</a>
+            <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html');">Portfolio</a>
+            <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html');">About</a>
+        </div>
+    </div>
+    <div id="site_back" class="site-back w-100">
+        <div class="container-lg">
+            <div class="row">
+                <div class="col-auto">
+                    <a class="nav-link nav-button nav-back" onclick="navigateBack();">
+                        <i class="bi bi-caret-left-fill"></i>Back
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <div id="site_body" class="site-body">
@@ -93,6 +104,7 @@
 <!-- scripts -->
 <script src="js/vendor/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="js/vendor/OverlayScrollbars.min.js"></script>
-<script src="js/portfoliobase.js"></script>
+<script src="js/portbase.js"></script>
+<script src="js/portprojects.js"></script>
 </body>
 </html>
