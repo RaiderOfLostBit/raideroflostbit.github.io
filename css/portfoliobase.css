@@ -64,6 +64,7 @@ a:hover {
     font-weight: 600;
     color: var(--font-color-bright);
     font-family: var(--font-family-secondary);
+    cursor: pointer;
 }
 
 .navbar .nav-link.active {
@@ -88,10 +89,20 @@ a:hover {
     border-color: #ffffff;
 }
 
+.site-mobile-navbar {
+    background-color: var(--secondary-color);
+}
+
+.site-mobile-navbar .container-lg {
+    padding-top: 0.125rem;
+    padding-bottom: 0.125rem;
+}
+
 .navbar-collapse .nav-link {
     font-weight: 600;
     color: var(--font-color-dark);
     font-family: var(--font-family-secondary);
+    cursor: pointer;
 
     text-align: center;
     background-color: rgba(255,255,255,0.75);
@@ -101,13 +112,23 @@ a:hover {
 }
 
 .navbar-collapse .nav-link:hover {
-    color: var(--secondary-color);
+    color: var(--font-color-dark);
     background-color: rgba(255,255,255,1);
 }
 
 .site-body {
     min-height: 80vh;
     position: relative;
+}
+
+@keyframes loading_fade_in {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+@keyframes loading_fade_out {
+    from {opacity: 1}
+    to {opacity: 0}
 }
 
 #inner_body_loading {
@@ -120,7 +141,10 @@ a:hover {
 }
 
 .inner-body-loading-icon {
-    margin: auto;
+    width: 50px;
+    height: 50px;
+    background-image: url("../assets/img/loading.svg");
+    background-size: cover;
 }
 
 .site-section {

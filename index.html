@@ -36,8 +36,8 @@
                 </div>
                 <div class="col-6">
                     <div class="navbar nav-head w-100 h-100 align-items-center justify-content-end desktop-only">
-                        <a class="nav-link" onclick="loadContent('portprojects.html')">Portfolio</a>
-                        <a class="nav-link" onclick="loadContent('portabout.html')">About</a>
+                        <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html')">Portfolio</a>
+                        <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html')">About</a>
                     </div>
                     <div class="navbar nav-head-mobile w-100 h-100 align-items-center justify-content-end mobile-only">
                         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMobile" aria-controls="navbarsMobile" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,17 +46,19 @@
                     </div>
                 </div>
             </div>
-            <div id="navbarsMobile" class="navbar-collapse collapse mobile-only">
-                <a class="nav-link active" onclick="loadContent('portprojects.html')">Portfolio</a>
-                <a class="nav-link active" onclick="loadContent('portabout.html')">About</a>
-            </div>
+        </div>
+    </div>
+    <div id="navbarsMobile" class="site-mobile-navbar navbar-collapse collapse mobile-only">
+        <div class="container-lg">
+            <a class="nav-link nav-button nav-portfolio" onclick="loadContent('portprojects.html')">Portfolio</a>
+            <a class="nav-link nav-button nav-about" onclick="loadContent('portabout.html')">About</a>
         </div>
     </div>
     <div id="site_body" class="site-body">
         <div id="inner_body"></div>
         <div id="inner_body_loading">
             <div class="w-100 h-100 justify-content-center align-items-center d-flex">
-                <span>Loading...</span>
+                <span class="inner-body-loading-icon"></span>
             </div>
         </div>
     </div>

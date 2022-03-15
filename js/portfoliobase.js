@@ -1,4 +1,14 @@
 /** Code run on site load */
+
+// Static variables
+const contentLinks =
+    [{file: "portprojects.html", navClass: 'nav-portfolio', default: true, showBack: false},
+    {file: "portabout.html", navClass: 'nav-about', default: false, showBack: false}];
+
+const loadingScreenFadeTime = 300;
+
+// Dynamic set variables
+let currentContentFile;
 let xhttp;
 let bIsLoading = false;
 let bLoadingScreen = false;
@@ -28,10 +38,24 @@ function setInnerBodyMinHeight() {
 }
 
 function loadDefaultContent() {
-    loadContent('portprojects.html');
+    let defaultContent;
+
+    for(let i=0; i < contentLinks.length; i++)
+    {
+        if(contentLinks[i].default)
+        {
+            defaultContent = contentLinks[i].file;
+            break;
+        }
+    }
+
+    if(defaultContent)
+    {
+        loadContent(defaultContent);
+    }
 }
 
-/* Dynamically includes content into a page. https://www.w3schools.com/howto/howto_html_include.asp */
+/* Dynamically includes content into a page. */
 function loadContent(filename) {
     // Do not accept loading attempts until we are finished
     if(bIsLoading)
@@ -78,10 +102,14 @@ function loadContentAjaxInternal(filename) {
                 element.innerHTML = "An Error occurred while loading the page content.";
             }
 
+            // set the content we are currently displaying
+            currentContentFile = filename;
+
             // Adjust footer
             setInnerBodyMinHeight();
 
             // Check if we have to change the active tab
+            updateActiveTab();
 
             // Check if we have to show the additional back button
 
@@ -100,26 +128,62 @@ function loadContentAjaxInternal(filename) {
 
 function showLoadingOverlay() {
     let loadingEl = document.getElementById('inner_body_loading');
-
     loadingEl.style.display = "block";
-    // Play Animation
+    loadingEl.style.animation = "loading_fade_in " + loadingScreenFadeTime + "ms forwards";
 
     bLoadingScreen = true;
 
-    const animDuration = 300;
-    return animDuration;
+    window.setTimeout(function () {
+        loadingEl.style.animation = "";
+    }, loadingScreenFadeTime);
+
+    return loadingScreenFadeTime;
 }
 
 function removeLoadingOverlay() {
     let loadingEl = document.getElementById('inner_body_loading');
-
-    loadingEl.style.display = "none";
-    // Play Fade Out Animation
+    loadingEl.style.animation = "loading_fade_out " + loadingScreenFadeTime + "ms forwards";
 
     bLoadingScreen = false;
 
-    const animDuration = 300;
-    return animDuration;
+    window.setTimeout(function () {
+        loadingEl.style.animation = "";
+        loadingEl.style.display = "none";
+    }, loadingScreenFadeTime);
+
+    return loadingScreenFadeTime;
+}
+
+function updateActiveTab() {
+    // First remove all active elements
+    let elements = document.getElementsByClassName('nav-button');
+    for(let i = 0; i < elements.length; i++)
+    {
+        let element = elements[i];
+        element.classList.remove('active');
+    }
+
+    // Find matching nav ID
+    let navClass;
+    for(let h = 0; h < contentLinks.length; h++)
+    {
+        if(contentLinks[h].file === currentContentFile)
+        {
+            navClass = contentLinks[h].navClass;
+            break;
+        }
+    }
+
+    if(navClass && navClass !== "")
+    {
+        let navElements = document.getElementsByClassName(navClass);
+        if(navElements.length > 0)
+        {
+            for(let j = 0; j < navElements.length; j++) {
+                navElements[j].classList.add('active');
+            }
+        }
+    }
 }
 
 /** Helper Functions */
