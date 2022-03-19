@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Julius Dreher">
-    <title>Portfolio Index</title>
+    <title>Julius Dreher | Portfolio</title>
 
     <!-- CSS -->
     <link type="text/css" href="css/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-6">
                     <div class="site-title">
-                        <a href="https://raideroflostbit.github.io/">Person Name</a>
+                        <a href="https://raideroflostbit.github.io/">Julius Dreher</a>
                         <div class="site-subtitle">Working Field</div>
                     </div>
                 </div>
@@ -117,15 +117,13 @@
 
 <!-- initial code -->
 <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-        //The first argument are the elements to which the plugin shall be initialized
-        //The second argument has to be at least a empty object or a object with your desired options
-        OverlayScrollbars(document.querySelectorAll("body"), { });
-    });
-
     // Create the Portfolio Controller Object
     // We can access this anytime from ControllerSingleton variable.
     createPortfolioController(content_gamedev);
+
+    // Create the Overlay Scrollbar instance
+    // We can access this anytime after DOM Content loaded from ScrollSingleton variable.
+    createScrollInstance();
 </script>
 </body>
 </html>

@@ -1,0 +1,122 @@
+<div class="content-section">
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <h2>2446 - Anthropocene Rebirth</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-text">
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-9 col-lg-7">
+                <div class="clearfix">
+                    <p>
+                        <i>2446 - Anthropocene Rebirth</i> is the bachelor thesis of two fellow students and me.
+                        The game is an online multiplayer-based RTT (Realtime Tactics) prototype developed using Unreal Engine 4
+                        and a combination of C++ and Unreal's visual scripting language 'Blueprints'.
+                    </p>
+                    <div class="col-12 mt-4 mb-4">
+                        <a href="assets/img/anrebirth-titel.jpg" data-lightbox="anrebirth-titel">
+                            <img class="img-fluid" src="assets/img/anrebirth-titel.jpg" alt="Anthropocene Rebirth Title Image">
+                        </a>
+                    </div>
+                    <p>
+                        In Anthropocene Rebirth, you take control of a fleet of hovering warships to fight with them for dominance over resource points.
+                        The objective is to conquer an ancient relic, thereby winning the match.
+                        The key component is an in-match editor that allows you to change the weaponry of your warships inside the players'
+                        base during the match.
+                    </p>
+                    <div class="content-text-section-small">
+                        <h5>Development</h5>
+                    </div>
+                    <p>
+                        My tasks were the technical and programmatic implementation of the prototype,
+                        as well as shader development and user interface design.
+                        All art related content was created by my colleagues.
+                    </p>
+                    <p>
+                        Online synchronization is implemented using Unreal's built-in replication system and integrating Steam as a network layer.
+                        We used a listen-server approach, where a player acts as both server and client at the same time.
+                    </p>
+                    <p>
+                        As needed for an RTT, I implemented a lobby system that allows players to create new lobbies,
+                        browse and join existing ones, and set their teams, factions, maps, and game modes before the actual match begins.
+                        Within the match, only game-relevant elements are replicated from the server to the client, such as ship movement,
+                        turret firing or unit visibility.
+                    </p>
+                    <div class="col-12 mt-4 mb-4">
+                        <a href="assets/img/anrebirth-net.jpg" data-lightbox="anrebirth-net">
+                            <img class="img-fluid" src="assets/img/anrebirth-net.jpg" alt="Anthropocene Rebirth Network Image">
+                        </a>
+                        <div class="content-image-text">The image shows different views of clients. Icons and in world colors have to match their team.</div>
+                    </div>
+                    <p>
+                        To add depth to units, Unreal's Gameplay Ability System (GAS) is used, which mainly handles attributes,
+                        stats and state changes. GAS encourages you to create a gameplay framework based mainly on running lots of small,
+                        simple pieces of code and adding tags to objects, rather than creating large, complicated classes and hard dependencies.
+                        Once you've built a foundation with this system, you can easily add new content and mechanics on top of it.
+                    </p>
+                    <div class="col-12 mt-4 mb-4">
+                        <a href="assets/img/anrebirth-gas-2.jpg" data-lightbox="anrebirth-gas">
+                            <img class="img-fluid" src="assets/img/anrebirth-gas-2.jpg" alt="Anthropocene Rebirth GAS Image">
+                        </a>
+                        <div class="content-image-text">GAS Attributes shown left controlling the behavior of the ship's turrets.</div>
+                    </div>
+                    <p>
+                        Using GAS really opened my eyes to how modular gameplay systems can be approached.
+                    </p>
+                    <p>
+                        Last but not least, data handling was an essential part of this project.
+                        With a modular approach to ship weaponry, we needed enough 'metadata' from objects to display important information
+                        or create the objects themselves. Here I used Unreal's Primary Asset Data classes and its Asset Manager in combination
+                        with Class Default Objects (CDO) to dynamically load, use, and unload needed information.
+                    </p>
+                    <div class="content-text-section-small">
+                        <h5>Conclusion</h5>
+                    </div>
+                    <p>
+                        The Bachelor's thesis was an ambitious project with a hard and time-consuming learning curve.
+                        But finishing it took me a big step forward in thinking about and implementing new gameplay and core mechanics for a game project.
+                    </p>
+                    <div class="content-text-section-small">
+                        <h5>Images</h5>
+                    </div>
+                    <div class="row gy-2">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <a href="assets/img/anrebirth-gameplay-1.jpg" data-lightbox="anrebirth-images">
+                                <img class="img-fluid img-gallery" src="assets/img/anrebirth-gameplay-1.jpg" alt="Anthropocene Rebirth Gameplay 01">
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <a href="assets/img/anrebirth-gameplay-2.jpg" data-lightbox="anrebirth-images">
+                                <img class="img-fluid img-gallery" src="assets/img/anrebirth-gameplay-2.jpg" alt="Anthropocene Rebirth Gameplay 02">
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <a href="assets/img/anrebirth-gameplay-3.jpg" data-lightbox="anrebirth-images">
+                                <img class="img-fluid img-gallery" src="assets/img/anrebirth-gameplay-3.jpg" alt="Anthropocene Rebirth Gameplay 03">
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <a href="assets/img/anrebirth-gameplay-4.jpg" data-lightbox="anrebirth-images">
+                                <img class="img-fluid img-gallery" src="assets/img/anrebirth-gameplay-4.jpg" alt="Anthropocene Rebirth Gameplay 04">
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <a href="assets/img/anrebirth-gameplay-5.jpg" data-lightbox="anrebirth-images">
+                                <img class="img-fluid img-gallery" src="assets/img/anrebirth-gameplay-5.jpg" alt="Anthropocene Rebirth Gameplay 05">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="content-text-section-small">
+                        <h5>Gameplay Reel</h5>
+                    </div>
+                    <iframe class="embedded-video" src="https://www.youtube.com/embed/r4c199ix_QE"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-end"></div>

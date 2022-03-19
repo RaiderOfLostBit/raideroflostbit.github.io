@@ -178,17 +178,39 @@ a:hover {
     line-height: 1.5;
 }
 
-.content-section-small {
+.content-text p {
+    /*text-align: justify;*/
+}
+
+.content-text-section {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 
-.content-text p {
-    text-align: justify;
+.content-text-section-small {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.content-text li {
+    padding-bottom: 0.25rem;
 }
 
 .content-end {
     padding-bottom: 2rem;
+}
+
+.content-info {
+    color: var(--font-color);
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.content-image-text {
+    opacity: 85%;
+    width: 100%;
+    text-align: center;
 }
 
 .site-footer {

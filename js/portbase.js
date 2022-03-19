@@ -1,6 +1,7 @@
-/** PORTFOLIO CONTROLLER CLASS */
 let ControllerSingleton = null;
+let ScrollSingleton = null;
 
+/** PORTFOLIO CONTROLLER CLASS */
 function PortfolioController(content) {
 // Variables
     // Static
@@ -179,6 +180,9 @@ function PortfolioController(content) {
         // Execute content based site updates
         updateActiveTab();
         updateShowBack();
+
+        // Dispatch an global event
+        window.dispatchEvent(new Event('onPostAjaxLoad'));
     }
 
     /* Shows the loading element. */
@@ -286,4 +290,20 @@ function changeContent(/*string*/hash) {
     {
         ControllerSingleton.updateContentLinkage(hash);
     }
+}
+
+function createScrollInstance() {
+    document.addEventListener("DOMContentLoaded", function() {
+        // The first argument are the elements to which the plugin shall be initialized
+        // The second argument has to be at least a empty object or a object with your desired options
+        ScrollSingleton = OverlayScrollbars(document.querySelectorAll("body"), { });
+
+        // Scroll to top after ajax load has completed
+        window.addEventListener('onPostAjaxLoad', function () {
+            if(ScrollSingleton)
+            {
+                ScrollSingleton.scroll({ y: "0%" }, 300);
+            }
+        });
+    });
 }

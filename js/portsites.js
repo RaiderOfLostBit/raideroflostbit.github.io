@@ -7,7 +7,7 @@ function createProjectItems(items) {
         if(itemAnchorEl)
         {
             // Iterate the project items and create the elements
-            for(let i = 0; i < items.length; i++)
+            for(let i = items.length - 1; i >= 0; i--)
             {
                 createProjectItem(itemAnchorEl, items[i]);
             }
