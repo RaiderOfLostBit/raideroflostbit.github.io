@@ -32,13 +32,15 @@ a:hover {
     color: var(--secondary-color);
 }
 
-.site-title a:hover {
-    color: var(--secondary-color);
-}
-
 .site-header {
     padding: 0.125rem;
     background: linear-gradient(-45deg, var(--secondary-color), var(--secondary-color) 50%, #000 20px, #000 40px);
+}
+
+.site-title {
+    display: flex;
+    height: 100%;
+    align-items: center;
 }
 
 .site-title a {
@@ -46,6 +48,10 @@ a:hover {
     font-weight: 800;
     letter-spacing: 1px;
     color: var(--site-title-color);
+}
+
+.site-title a:hover {
+    color: var(--secondary-color);
 }
 
 .site-title .site-subtitle {
@@ -242,6 +248,10 @@ a:hover {
     }
     .site-header {
         padding: 0.8125rem;
+    }
+    .site-title {
+        display: block;
+        align-items: normal;
     }
     .site-title a {
         font-size: 1.25rem;
