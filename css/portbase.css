@@ -1,10 +1,11 @@
 /** Global variables */
 :root {
-    --secondary-color: #15857f;
-    --body-bg: #eeeeee;
-    --header-bg: #131313;
-    --footer-bg: #222222;
+    --secondary-color: #00162D;
+    --secondary-color-bright: #1C6DBFFF;
+    --secondary-color-highlight: #3299FF;
+    --body-bg: #e2e2e2;
     --site-title-color: #ffffff;
+    --site-subtitle-color: #eeeeee;
     --font-color-bright: #ffffff;
     --font-color: #eeeeee;
     --font-color-dark: #222222;
@@ -24,17 +25,18 @@ h1, h2, h3, h4, h5, h6, .site-title {
 }
 
 a {
+    color: var(--secondary-color-highlight);
     text-decoration: none;
     transition: color 0.25s;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--secondary-color-bright);
 }
 
 .site-header {
-    padding: 0.125rem;
-    background: linear-gradient(-45deg, var(--secondary-color), var(--secondary-color) 50%, #000 20px, #000 40px);
+    padding: 0.1rem;
+    background-color: var(--secondary-color);
 }
 
 .site-title {
@@ -45,54 +47,54 @@ a:hover {
 
 .site-title a {
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 600;
     letter-spacing: 1px;
     color: var(--site-title-color);
 }
 
-.site-title a:hover {
-    color: var(--secondary-color);
-}
-
 .site-title .site-subtitle {
-    color: var(--site-title-color);
+    color: var(--site-subtitle-color);
     font-weight: 400;
     letter-spacing: 0;
     font-size: 0.75rem;
 }
 
 .nav-head {
-    padding-right: 4em;
+    /*padding-right: 4em;*/
 }
 
 .navbar .nav-link {
-    margin-right: 2px;
-    font-weight: 600;
-    color: var(--font-color-bright);
+    margin-right: 6px;
+    font-weight: 400;
+    color: var(--font-color);
     font-family: var(--font-family-secondary);
     cursor: pointer;
+    border-radius: 2px;
+
+    transition: box-shadow 0.15s;
 }
 
 .navbar .nav-link.active {
-    color: var(--font-color-dark);
-    background-color: var(--font-color);
-    border-radius: 4px;
+    color: var(--font-color-bright);
+    box-shadow: 0 0 0 2px var(--secondary-color-highlight);
 }
 
 .nav-head .nav-link:hover {
-    color: var(--font-color-dark);
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 4px;
+    color: var(--font-color-bright);
+    box-shadow: 0 0 0 2px var(--secondary-color-highlight);
 }
 
 .nav-head .nav-link.active:hover {
-    color: var(--secondary-color);
-    background-color: var(--font-color);
 }
 
 .navbar-toggler {
-    color: #ffffff;
-    border-color: #ffffff;
+    color: var(--font-color);
+    border-radius: 2px;
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--secondary-color-highlight);
 }
 
 .site-mobile-navbar {
@@ -101,45 +103,65 @@ a:hover {
 
 .site-mobile-navbar .container-lg {
     padding-top: 0.125rem;
-    padding-bottom: 0.125rem;
+    padding-bottom: 0.5rem;
 }
 
 .navbar-collapse .nav-link {
-    font-weight: 600;
-    color: var(--font-color-dark);
-    font-family: var(--font-family-secondary);
-    cursor: pointer;
-
-    text-align: center;
-    background-color: rgba(255,255,255,0.75);
-    border-radius: 4px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-.navbar-collapse .nav-link:hover {
-    color: var(--font-color-dark);
-    background-color: rgba(255,255,255,1);
-}
-
-.site-back {
-    margin-top: 1rem;
-    display: none;
-}
-
-.site-back .nav-link {
-    font-weight: 600;
+    font-weight: 400;
     color: var(--font-color);
     font-family: var(--font-family-secondary);
     cursor: pointer;
+    text-align: center;
+
+    position: relative;
+    z-index: 555;
+    border-radius: 2px;
+}
+
+.navbar-collapse .nav-link:hover {
+    color: var(--font-color-bright);
+    box-shadow: 0 0 0 2px var(--secondary-color-highlight);
+}
+
+.nav-button-separator-mobile {
+    width: 100%;
+    height: 1px;
+    pointer-events: none;
+    padding: 0 2px;
+}
+
+.nav-button-separator-mobile div {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.site-back {
+}
+
+.site-back-hidden {
+}
+
+.site-back-sticky {
+}
+
+.site-back .nav-link {
+    font-weight: 400;
+    color: var(--font-color-dark);
+    font-family: var(--font-family-secondary);
+    cursor: pointer;
 
     text-align: center;
-    background-color: var(--font-color-dark);
-    border-radius: 4px;
+    border-radius: 2px;
+    transition: 0.15s;
 }
 
 .site-back .nav-link:hover {
-    color: var(--secondary-color);
+    box-shadow: 0 0 0 2px var(--secondary-color-bright);
+}
+
+.site-back .nav-link:hover > .bi {
+    color: var(--secondary-color-bright);
 }
 
 .site-body {
@@ -180,7 +202,7 @@ a:hover {
 
 .content-section h2 {
     text-align: center;
-    border-bottom: 4px solid var(--secondary-color);
+    /*border-bottom: 4px solid var(--secondary-color);*/
     line-height: 1.5;
 }
 
@@ -207,10 +229,14 @@ a:hover {
 }
 
 .content-info {
-    color: var(--font-color);
-    background-color: var(--secondary-color);
+    box-shadow: 0 0 0 2px var(--secondary-color-bright);
     padding: 1rem;
     border-radius: 4px;
+}
+
+.content-info .bi::before {
+    color: var(--secondary-color-bright);
+    font-size: 1.25rem;
 }
 
 .content-image-text {
@@ -220,14 +246,14 @@ a:hover {
 }
 
 .site-footer {
-    padding: 1.875rem 0;
-    background-color: var(--footer-bg);
+    padding: 0.85rem 0;
+    background-color: var(--secondary-color);
     color: var(--font-color-bright);
     text-align: center;
 }
 
 .site-footer-col {
-    margin-top: 0.75rem;
+    margin-top: 0;
 }
 
 .contact-icon {
@@ -247,25 +273,36 @@ a:hover {
         display: none;
     }
     .site-header {
-        padding: 0.8125rem;
-    }
-    .site-title {
-        display: block;
-        align-items: normal;
+        padding: 0.25rem;
     }
     .site-title a {
-        font-size: 1.25rem;
+        font-size: 1.15rem;
     }
     .site-title .site-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
+    }
+    .site-footer {
+        padding: 1rem 0;
     }
     .site-footer-col {
         margin-top: 0;
     }
     .site-back {
+        display: block;
         z-index: 555;
         position: absolute;
-        margin-top: 2.25rem;
+    }
+    .site-back .container-lg {
+        padding-top: 1.25rem;
+        padding-bottom: 0.4rem;
+    }
+    .site-back-hidden {
+        display: none !important;
+    }
+    .site-back-sticky {
+        position: fixed !important;
+        top: 0;
+        margin-top: 0;
     }
 }
 
@@ -279,13 +316,16 @@ a:hover {
 /** Style for desktop and lager */
 @media (min-width: 1200px) {
     .site-header {
-        padding: 1.5625rem;
+        padding: 0.5rem;
     }
     .site-title a {
-        font-size: 30px;
+        font-size: 22px;
     }
     .site-title .site-subtitle {
-        font-size: 20px;
+        font-size: 16px;
+    }
+    .site-footer {
+        padding: 1.25rem 0;
     }
     .site-footer-col {
         margin-top: 0;

@@ -14,6 +14,7 @@ function PortfolioController(content) {
     let curHash;
     let loadHash;
     let ajaxRequest;
+    let siteBackTopOffset;
 
 // Private Functions
     /* Sets min-size of inner-body so footer is always on screen if not enough content on site. */
@@ -28,6 +29,12 @@ function PortfolioController(content) {
         innerBodyEl.style.minHeight = viewportSize.height - staticHeight + "px";
     }
 
+    /* Assigns the initial site back top offset value. */
+    let setInitialSiteBackOffset = function () {
+        siteBackTopOffset = document.getElementById('site_back').offsetTop;
+    }
+
+    /* Returns site content description by a specified hash. */
     let getContent = function (/*string*/hash) {
         if(!hash || hash === "" || !siteContent || siteContent.length === 0)
         {
@@ -48,7 +55,7 @@ function PortfolioController(content) {
     }
 
     /* Changes the content location to the default one. */
-    let setDefaultContentLocation = function () {
+    let getDefaultContentLocation = function () {
         let defaultHash;
 
         for(let i=0; i < siteContent.length; i++)
@@ -60,10 +67,7 @@ function PortfolioController(content) {
             }
         }
 
-        if(defaultHash)
-        {
-            updateContentLinkage_Internal(defaultHash);
-        }
+        return defaultHash;
     }
 
     /* Triggers an Location change based on the given content hash. */
@@ -179,7 +183,7 @@ function PortfolioController(content) {
 
         // Execute content based site updates
         updateActiveTab();
-        updateShowBack();
+        updateShowBack(loadHash);
 
         // Dispatch an global event
         window.dispatchEvent(new Event('onPostAjaxLoad'));
@@ -245,13 +249,38 @@ function PortfolioController(content) {
     }
 
     /* Displays or removes the back button. */
-    let updateShowBack = function () {
-        let content = getContent(loadHash);
+    let updateShowBack = function (/*string*/hash) {
+        let content = getContent(hash);
 
         if(content)
         {
             let backEl = document.getElementById('site_back')
-            backEl.style.display = content.showBack ? "block" : "none";
+            if(content.showBack)
+            {
+                backEl.classList.remove('site-back-hidden');
+            }
+            else
+            {
+                backEl.classList.add('site-back-hidden');
+            }
+        }
+    }
+
+    /* Updates the sticky site back button. */
+    let updateStickySiteBack = function () {
+        if(ScrollSingleton)
+        {
+            let siteBack = document.getElementById('site_back');
+            let scrollInfo = ScrollSingleton.scroll();
+
+            if (scrollInfo.position.y > siteBackTopOffset)
+            {
+                siteBack.classList.add("site-back-sticky");
+            }
+            else
+            {
+                siteBack.classList.remove("site-back-sticky");
+            }
         }
     }
 
@@ -262,7 +291,14 @@ function PortfolioController(content) {
 
     this.onSiteLoad = function () {
         setInnerBodyMinHeight();
-        setDefaultContentLocation();
+        setInitialSiteBackOffset();
+
+        let defaultHash = getDefaultContentLocation();
+        if(defaultHash)
+        {
+            updateShowBack(defaultHash);
+            updateContentLinkage_Internal(defaultHash);
+        }
     }
 
     this.onLocationChanged = function () {
@@ -271,6 +307,10 @@ function PortfolioController(content) {
 
     this.updateContentLinkage = function (/*string*/hash) {
         updateContentLinkage_Internal(hash);
+    }
+
+    this.onSiteScroll = function () {
+        updateStickySiteBack();
     }
 
 // Constructor
@@ -296,7 +336,16 @@ function createScrollInstance() {
     document.addEventListener("DOMContentLoaded", function() {
         // The first argument are the elements to which the plugin shall be initialized
         // The second argument has to be at least a empty object or a object with your desired options
-        ScrollSingleton = OverlayScrollbars(document.querySelectorAll("body"), { });
+        ScrollSingleton = OverlayScrollbars(document.body, {
+            callbacks: {
+                onScroll: function (event) {
+                    if(ControllerSingleton)
+                    {
+                        ControllerSingleton.onSiteScroll();
+                    }
+                }
+            }
+        });
 
         // Scroll to top after ajax load has completed
         window.addEventListener('onPostAjaxLoad', function () {

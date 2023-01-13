@@ -24,7 +24,7 @@ function createProjectItem(/*HTMLElement*/anchorElement, item) {
         columnEl.classList.add('col-12', 'col-md-6', 'col-lg-6', 'col-xl-4');
 
         let itemEl = document.createElement('div');
-        itemEl.classList.add('album-grid-item', 'shadow-sm');
+        itemEl.classList.add('album-grid-item'/*, 'shadow-sm'*/);
         itemEl.style.backgroundImage = 'url(' + item.image + ')';
 
         let hyperlinkEl = document.createElement('a');
