@@ -9,14 +9,17 @@ function createProjectItems(items) {
             // Iterate the project items and create the elements
             for(let i = items.length - 1; i >= 0; i--)
             {
-                createProjectItem(itemAnchorEl, items[i]);
+                if(items[i] && items[i].hash && items[i].hash !== "" && items[i].card)
+                {
+                    createProjectItem(itemAnchorEl, items[i].hash, items[i].card);
+                }
             }
         }
     }
 }
 
 /* Creates a new project item, based on the input. */
-function createProjectItem(/*HTMLElement*/anchorElement, item) {
+function createProjectItem(/*HTMLElement*/anchorElement, /*string*/hash, item) {
     if(anchorElement && item)
     {
         // Create the elements
@@ -24,11 +27,11 @@ function createProjectItem(/*HTMLElement*/anchorElement, item) {
         columnEl.classList.add('col-12', 'col-md-6', 'col-lg-6', 'col-xl-4');
 
         let itemEl = document.createElement('div');
-        itemEl.classList.add('album-grid-item'/*, 'shadow-sm'*/);
+        itemEl.classList.add('album-grid-item');
         itemEl.style.backgroundImage = 'url(' + item.image + ')';
 
         let hyperlinkEl = document.createElement('a');
-        hyperlinkEl.setAttribute('onclick', "changeContent('" + item.hash + "');");
+        hyperlinkEl.setAttribute('onclick', "changeContent('" + hash + "');");
 
         let overlayEl = document.createElement('div');
         overlayEl.classList.add('album-grid-item-overlay');
@@ -58,5 +61,67 @@ function createProjectItem(/*HTMLElement*/anchorElement, item) {
         columnEl.appendChild(itemEl);
 
         anchorElement.appendChild(columnEl);
+    }
+}
+
+/* Returns the definition item for a project. */
+function getProjectItem(/*string*/hash, items) {
+    if(!hash || hash === "" || !items || items.length === 0)
+    {
+        return null;
+    }
+
+    for(let i = 0; i < items.length; i++)
+    {
+        if(items[i].hash === hash)
+        {
+            return items[i];
+        }
+    }
+}
+
+/* Prepares a content site for display. */
+function prepareProjectPage(item) {
+    if(item && item.page)
+    {
+        // Find and create the site header
+        let siteHeader = document.getElementById('site_header');
+        if(siteHeader)
+        {
+            // Create Tags
+            let Tags = "";
+            for(let i = 0; i < item.tags.length; i++)
+            {
+                Tags += `
+                    <div class="col-auto">
+                        <div class="tag-item tag-item-style-light">${item.tags[i]}</div>
+                    </div>
+                `;
+            }
+            // Assemble the header
+            siteHeader.innerHTML = `
+                <div class="container-lg">
+                    <div class="row justify-content-center">
+                        <div class="col-11 col-md-9 col-lg-9">
+                            <div class="article-header-container">
+                                <div class="article-header-overlay" style="background: 50% url('${item.page.image}'); background-size: cover;"></div>
+                                <div class="article-header-overlay">
+                                    <div class="container h-100">
+                                        <div class="row h-100 justify-content-center align-items-center">
+                                            <h2>${item.page.title}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-11 col-md-9 col-lg-7">
+                            <div class="row gx-2 gy-2 mt-4">${Tags}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
     }
 }

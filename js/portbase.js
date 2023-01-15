@@ -157,7 +157,7 @@ function PortfolioController(content) {
                 // Execute Post-Function if set
                 if(loadContent.postFunc && loadContent.postFunc !== '')
                 {
-                    callFunctionByName(loadContent.postFunc, window);
+                    callFunctionByName(loadContent.postFunc, window, loadContent.hash);
                 }
 
                 // Remove the loading overlay

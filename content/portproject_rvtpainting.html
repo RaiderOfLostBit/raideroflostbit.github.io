@@ -1,0 +1,65 @@
+<div id="site_header" class="content-section"></div>
+<div class="content-text">
+    <div class="container-lg">
+        <div class="row justify-content-center">
+            <div class="col-11 col-md-9 col-lg-7">
+                <div class="clearfix">
+                    <p>
+                        Based on an idea of a new RTS game by two friends and me, I needed to implement a custom toolset
+                        for the Unreal Engine Editor that would allow us to more easily create large game worlds from close-up views
+                        to large top-down vistas. The tools were developed as editor plugins to keep them encapsulated and independent of projects.
+                    </p>
+                    <div class="content-text-section-small">
+                        <h5>RVT Painting</h5>
+                    </div>
+                    <p>
+                        RVT Painting is a custom editor mode for texturing landscapes that offers a more modular texturing and painting approach
+                        than the built-in tools.
+                    </p>
+                    <p>
+                        Normally in Unreal, you have to create a complex landscape material with all the layers you need already defined,
+                        which can then be painted onto the landscape. If you have a limited team size, it can be difficult to mantain this material.
+                    </p>
+                    <p>
+                        I've always liked the approach that Cryengine takes, where you can create paint layers dynamically as needed.
+                        With that in mind, the custom approach makes use of Unreal's Runtime Virtual Texturing System,
+                        which is basically a material caching method that reduces render times but increases vram consumption.
+                        The ability to render meshes with their materials into this cache and then project them onto a landscape is
+                        used to create the layer-based texturing system.
+                    </p>
+                    <p>
+                        In the custom system, each layer has its own RGB weightmap, so three different ground types can be painted per layer.
+                        Layers can be created or removed dynamically.
+                        Each layer uses an assignable Material Instance that defines the ground types, and a sort index.
+                        By changing the sort index, the order of the layers can be adjusted.
+                    </p>
+                    <p>
+                        The Material Instance uses Unreal's Material Layer system to specify each ground type as well as its blending.
+                        Several presets for ground and blend types are included, making it easier for artists to use them.
+                    </p>
+                    <p>
+                        The main components of the systems are:
+                    </p>
+                    <ul>
+                        <li>Dynamic creation or removal of painting layers</li>
+                        <li>Dynamic sorting of painting layers as well as locking layers and switching visibility</li>
+                        <li>Easy swapping of the used Material Instance for a layer, changing its ground types and blending</li>
+                        <li>Custom controls for painting, taking into account industry shortcuts</li>
+                        <li>Each ground type can have its own physical material as well as its own grass type</li>
+                    </ul>
+                    <p>
+                        Caveats
+                    </p>
+                    <ul>
+                        <li>High VRAM consumption as two Runtime Virtual Textures are required for now (can be reduced by
+                            creating Virtual Textures of high mip levels in the final production phase)</li>
+                        <li>Rendering issues while painting (4.27)</li>
+                    </ul>
+                    <p>The Runtime Virtual Texture is further used for performant Landscape decals, paths and roads.</p>
+                    <iframe class="embedded-video" src="https://www.youtube.com/embed/eRwxG1Te6Ws"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-end"></div>

@@ -81,22 +81,39 @@
     border-bottom-right-radius: 2px;
 }
 
-.tag-row {
-    margin-bottom: 1rem;
-}
-
 .tag-item {
     padding: 0.35rem 1.5rem;
     font-size: smaller;
-    text-transform: uppercase;
     border-radius: 500px;
+}
 
+.tag-item-style-default {
     color: var(--font-color);
     background-color: var(--secondary-color-bright);
 }
 
-.tag-item-light {
+.tag-item-style-light {
+    color: var(--font-color);
     background-color: #5285B7;
+}
+
+.article-header-container {
+    position: relative;
+    min-height: 40vh;
+}
+
+.article-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.article-header-overlay h2 {
+    color: var(--font-color);
+    line-height: 1.5;
+    text-shadow: 0 0 10px rgba(0,0,0, 0.9);
 }
 
 .list-item-grey {

@@ -4,11 +4,12 @@ const content_gamedev =
     [
         {hash: 'portfolio', file: "content/portprojects.html", navClass: 'nav-portfolio', default: true, showBack: false, postFunc: 'postLoadProjects_gamedev'},
         {hash: 'about',file: "content/portabout.html", navClass: 'nav-about', default: false, showBack: false, postFunc: ''},
-        {hash: 'project-inari', file: "content/portproject_inari.html", navClass: '', default: false, showBack: true, postFunc: ''},
-        {hash: 'project-meruui', file: "content/portproject_meruui.html", navClass: '', default: false, showBack: true, postFunc: ''},
-        {hash: 'project-dlb', file: "content/portproject_dlb.html", navClass: '', default: false, showBack: true, postFunc: ''},
-        {hash: 'project-anrebirth', file: "content/portproject_anrebirth.html", navClass: '', default: false, showBack: true, postFunc: ''},
-        {hash: 'project-uetools1', file: "content/portproject_uetools1.html", navClass: '', default: false, showBack: true, postFunc: ''}
+        {hash: 'project-inari', file: "content/portproject_inari.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
+        {hash: 'project-meruui', file: "content/portproject_meruui.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
+        {hash: 'project-dlb', file: "content/portproject_dlb.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
+        {hash: 'project-anrebirth', file: "content/portproject_anrebirth.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
+        {hash: 'project-rvtpainting', file: "content/portproject_rvtpainting.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
+        {hash: 'project-instancescatter', file: "content/portproject_instancescatter.html", navClass: '', default: false, showBack: true, postFunc: 'postLoadProject'},
     ];
 
 /** PROJECT ITEMS LIST */
@@ -16,43 +17,109 @@ const content_gamedev =
 const projects_gamedev =
     [
         {
-            label: "Inari",
-            description: "Third-Person adventure game prototype developed in Unity Engine and C#.",
-            image: "assets/img/inari_thumbnail_v2.jpg",
             hash: "project-inari",
-            year: "2018"
+            tags: ["Unity", "C#", "Game Prototype"],
+            card: {
+                label: "Inari",
+                description: "Third-Person adventure game prototype developed in Unity Engine and C#.",
+                image: "assets/img/inari_thumbnail_v2.jpg",
+                year: "2018",
+            },
+            page: {
+                title: "Inari",
+                image: "assets/img/inari-title-small.jpg",
+            }
         },
         {
-            label: "Meruui",
-            description: "Third-Person adventure game prototype developed in Unreal Engine 4 and Blueprints.",
-            image: "assets/img/meruui-thumbnail.jpg",
             hash: "project-meruui",
-            year: "2019"
+            tags: ["Unreal Engine 4", "Blueprints", "Game Prototype"],
+            card: {
+                label: "Meruui",
+                description: "Third-Person adventure game prototype developed in Unreal Engine 4 and Blueprints.",
+                image: "assets/img/meruui-thumbnail.jpg",
+                year: "2019",
+            },
+            page: {
+                title: "Meruui",
+                image: "assets/img/meruui-title-small.jpg",
+            }
         },
         {
-            label: "Der letzte Bus",
-            description: "Web-based, playable 2D experience developed in HTML, CSS, Javascript and PHP.",
-            image: "assets/img/dlb-thumbnail.jpg",
             hash: "project-dlb",
-            year: "2020"
+            tags: ["HTML", "CSS", "Javascript", "Web Experience"],
+            card: {
+                label: "Der letzte Bus",
+                description: "Web-based, playable 2D experience developed in HTML, CSS, Javascript and PHP.",
+                image: "assets/img/dlb-thumbnail.jpg",
+                year: "2020",
+            },
+            page: {
+                title: "Der letzte Bus",
+                image: "assets/img/dlb-title-small.jpg",
+            }
         },
         {
-            label: "2446 - Anthropocene Rebirth",
-            description: "Online multiplayer-based realtime tactics game prototype made in Unreal Engine 4, C++ and Blueprints.",
-            image: "assets/img/anrebirth-thumbnail.jpg",
             hash: "project-anrebirth",
-            year: "2021"
+            tags: ["Unreal Engine 4", "Multiplayer", "C++", "Blueprints", "Game Prototype"],
+            card: {
+                label: "2446 - Anthropocene Rebirth",
+                description: "Online multiplayer-based realtime tactics game prototype made in Unreal Engine 4, C++ and Blueprints.",
+                image: "assets/img/anrebirth-thumbnail.jpg",
+                year: "2021",
+            },
+            page: {
+                title: "2446 - Anthropocene Rebirth",
+                image: "assets/img/anrebirth-title-small.jpg",
+            }
         },
         {
-            label: "Unreal Engine 4 Engine Tools",
-            description: "Custom Toolset for Unreal Engine Editor implemented in C++ and Blueprints.",
-            image: "assets/img/uetools1-thumbnail.jpg",
-            hash: "project-uetools1",
-            year: "2022"
-        }
+            hash: "project-rvtpainting",
+            tags: ["Unreal Engine 4", "Unreal Engine 5", "C++", "Tool"],
+            card: {
+                label: "RVT Painting Toolset",
+                description: "Custom Toolset for Unreal Engine Editor implemented in C++ and Blueprints.",
+                image: "assets/img/uetools1-thumbnail.jpg",
+                year: "2022"
+            },
+            page: {
+                title: "RVT Painting Toolset",
+                image: "assets/img/rvtpainting-title-small.jpg"
+            }
+        },
+        {
+            hash: "project-instancescatter",
+            tags: ["Unreal Engine 4", "Unreal Engine 5", "C++", "Tool"],
+            card: {
+                label: "Instance Scattering",
+                description: "Lorem Ipsum",
+                image: "assets/img/uetools1-thumbnail.jpg",
+                year: "2022"
+            },
+            page: {
+                title: "Instance Scattering",
+                image: "assets/img/instscatter-title-small.jpg",
+            }
+        },
+        /*
+        {
+            hash: "project-rlc",
+            card: {
+                label: "Runtime Landscape Collision",
+                description: "Lorem Ipsum",
+                image: "assets/img/uetools1-thumbnail.jpg",
+                year: "2022"
+            }
+        } */
     ];
 
 /* Content Post-load callbacks */
-function postLoadProjects_gamedev() {
+
+/* Run in portfolio to create the project tiles. */
+function postLoadProjects_gamedev(/*string*/hash) {
     createProjectItems(projects_gamedev);
+}
+
+/* General function to run after loading a project page. */
+function  postLoadProject(/*string*/hash) {
+    prepareProjectPage(getProjectItem(hash, projects_gamedev));
 }
