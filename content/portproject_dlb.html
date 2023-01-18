@@ -1,79 +1,82 @@
-<div id="site_header" class="content-section"></div>
-<div class="content-text">
-    <div class="container-lg">
-        <div class="row justify-content-center">
-            <div class="col-11 col-md-9 col-lg-7">
-                <div class="clearfix">
-                    <p>
-                        <i>Der letzte Bus</i> is a web-based, playable 2D experience developed in HTML, CSS, Javascript and PHP.
-                        <br>In <i>Der letzte Bus</i> you follow little Ember and her little brother Aiden as they try to escape
-                        an apocalyptic hurricane by taking the last bus out of their hometown while trying to find their parents.
-                        The project was made by seven fellow students and me for a university course.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Play it now!</h5>
+<div class="position-relative">
+    <div id="site_background"></div>
+    <div id="site_header"></div>
+    <div class="content-text">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-9 col-lg-7">
+                    <div class="clearfix">
+                        <p>
+                            <i>Der letzte Bus</i> is a web-based, playable 2D experience developed in HTML, CSS, Javascript and PHP.
+                            <br>In <i>Der letzte Bus</i> you follow little Ember and her little brother Aiden as they try to escape
+                            an apocalyptic hurricane by taking the last bus out of their hometown while trying to find their parents.
+                            The project was made by seven fellow students and me for a university course.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Play it now!</h5>
+                        </div>
+                        <p>
+                            You can play it here: <a href="https://www.der-letzte-bus.de" target="_blank">Der letzte Bus</a>
+                        </p>
+                        <div class="content-info d-flex">
+                            <div class="pe-3"><i class="bi bi-info-circle-fill"></i></div>
+                            <div>
+                                If the site is not loading and you are using an add-blocker, you have to turn it off.
+                                <br>Only german language is available.</div>
+                        </div>
+                        <div class="content-text-section-small">
+                            <h5>Development</h5>
+                        </div>
+                        <p>
+                            For this project, I developed an HTML, CSS, and Javascript based framework to achieve our goal of creating
+                            a game-like experience.
+                            My other fellow students were responsible for creating the art, sound, music and php session backend.
+                        </p>
+                        <p>
+                            A self-imposed goal of my group and me was to use as few plugins or pre-made content as possible.
+                            For my part, I ended up using only preloadjs and soundjs from the createjs suite for preloading content and playing audio files.
+                        </p>
+                        <p>
+                            Based on a class structure, a level-world is composed of multiple fixed parallax layers.
+                            All these layers and the objects they contain are moved forward or backward at different speeds depending on
+                            the size of the world and the current scroll position.
+                            To ensure that each object has its fixed position in the world, custom resizing logic is used based on common 16:9 resolutions.
+                        </p>
+                        <div class="col-12 col-md-12 mt-sm-4 mt-md-0 mb-4 ms-auto">
+                            <a href="assets/img/dlb-layers-opt.gif" data-lightbox="dlb-anim-gif">
+                                <img class="img-fluid d-flex ms-auto me-auto" src="assets/img/dlb-layers-opt.gif" width="512" height="288" alt="Der letzte Bus Layers Gif">
+                            </a>
+                        </div>
+                        <p>
+                            To detect whether objects are on the screen or interactions are possible, distance checks from the player to interactable
+                            objects are calculated at fixed intervals.
+                        </p>
+                        <p>
+                            Almost all events, such as the appearance of an object on the screen or the start of an interaction by the player,
+                            trigger custom JavaScript events.
+                            These events are eventually picked up in a per level script that controls progress and gameplay events.
+                        </p>
+                        <p>
+                            The approach of using only HTML, CSS, and Javascript has some advantages, but also caveats.
+                            Advantages are broad compatibility with different browsers and easy-to-understand concepts.
+                            The disadvantage is performance. Updating so many elements requires high browser performance.
+                            To support less powerful devices, a version was implemented that only scrolls further when the player reaches the edge of the screen.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Conclusion</h5>
+                        </div>
+                        <p>
+                            The project provided a good insight into what it means to accompany a complete experience from conception
+                            to its final implementation.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Gameplay</h5>
+                        </div>
+                        <iframe class="embedded-video" src="https://www.youtube.com/embed/l2OpU-KkUwM"></iframe>
                     </div>
-                    <p>
-                        You can play it here: <a href="https://www.der-letzte-bus.de" target="_blank">Der letzte Bus</a>
-                    </p>
-                    <div class="content-info d-flex">
-                        <div class="pe-3"><i class="bi bi-info-circle-fill"></i></div>
-                        <div>
-                            If the site is not loading and you are using an add-blocker, you have to turn it off.
-                            <br>Only german language is available.</div>
-                    </div>
-                    <div class="content-text-section-small">
-                        <h5>Development</h5>
-                    </div>
-                    <p>
-                        For this project, I developed an HTML, CSS, and Javascript based framework to achieve our goal of creating
-                        a game-like experience.
-                        My other fellow students were responsible for creating the art, sound, music and php session backend.
-                    </p>
-                    <p>
-                        A self-imposed goal of my group and me was to use as few plugins or pre-made content as possible.
-                        For my part, I ended up using only preloadjs and soundjs from the createjs suite for preloading content and playing audio files.
-                    </p>
-                    <p>
-                        Based on a class structure, a level-world is composed of multiple fixed parallax layers.
-                        All these layers and the objects they contain are moved forward or backward at different speeds depending on
-                        the size of the world and the current scroll position.
-                        To ensure that each object has its fixed position in the world, custom resizing logic is used based on common 16:9 resolutions.
-                    </p>
-                    <div class="col-12 col-md-12 mt-sm-4 mt-md-0 mb-4 ms-auto">
-                        <a href="assets/img/dlb-layers-opt.gif" data-lightbox="dlb-anim-gif">
-                            <img class="img-fluid d-flex ms-auto me-auto" src="assets/img/dlb-layers-opt.gif" width="512" height="288" alt="Der letzte Bus Layers Gif">
-                        </a>
-                    </div>
-                    <p>
-                        To detect whether objects are on the screen or interactions are possible, distance checks from the player to interactable
-                        objects are calculated at fixed intervals.
-                    </p>
-                    <p>
-                        Almost all events, such as the appearance of an object on the screen or the start of an interaction by the player,
-                        trigger custom JavaScript events.
-                        These events are eventually picked up in a per level script that controls progress and gameplay events.
-                    </p>
-                    <p>
-                        The approach of using only HTML, CSS, and Javascript has some advantages, but also caveats.
-                        Advantages are broad compatibility with different browsers and easy-to-understand concepts.
-                        The disadvantage is performance. Updating so many elements requires high browser performance.
-                        To support less powerful devices, a version was implemented that only scrolls further when the player reaches the edge of the screen.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Conclusion</h5>
-                    </div>
-                    <p>
-                        The project provided a good insight into what it means to accompany a complete experience from conception
-                        to its final implementation.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Gameplay</h5>
-                    </div>
-                    <iframe class="embedded-video" src="https://www.youtube.com/embed/l2OpU-KkUwM"></iframe>
                 </div>
             </div>
         </div>
     </div>
+    <div class="content-end"></div>
 </div>
-<div class="content-end"></div>

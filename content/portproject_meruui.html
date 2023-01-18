@@ -1,103 +1,106 @@
-<div id="site_header" class="content-section"></div>
-<div class="content-text">
-    <div class="container-lg">
-        <div class="row justify-content-center">
-            <div class="col-11 col-md-9 col-lg-7">
-                <div class="clearfix">
-                    <p>
-                        <i>Meruui</i> is a third-person adventure game prototype developed in Unreal Engine 4 with
-                        its visual scripting language 'Blueprints'.
-                        In Meruui, you take control of Laitari, a member of the Meruui tribe who is searching
-                        for his outcast sister in a frozen, hostile world.
-                        I realized this prototype with two fellow students for a university course.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Development</h5>
+<div class="position-relative">
+    <div id="site_background"></div>
+    <div id="site_header"></div>
+    <div class="content-text">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-9 col-lg-7">
+                    <div class="clearfix">
+                        <p>
+                            <i>Meruui</i> is a third-person adventure game prototype developed in Unreal Engine 4 with
+                            its visual scripting language 'Blueprints'.
+                            In Meruui, you take control of Laitari, a member of the Meruui tribe who is searching
+                            for his outcast sister in a frozen, hostile world.
+                            I realized this prototype with two fellow students for a university course.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Development</h5>
+                        </div>
+                        <p>
+                            The scope of the prototype was one polished level of an actual game.
+                            I was responsible for programming the prototype as well as creating the shaders,
+                            the user interface and modeling, texturing and animating the main character and creatures.
+                            All other art was created by my team members.
+                        </p>
+                        <p>
+                            My main focus throughout the project was to take an deeper look into building a third person control
+                            and animation system with combat elements based on the
+                            <a href="https://youtu.be/yTniZCOCY7o">Advanced Locomotion System V3</a>
+                            plugin by LongmireLocomotion and Unreals default movement component.
+                        </p>
+                        <p>
+                            The first challenge was to model and rig a humanoid character and make it compatible with Unreals skeleton
+                            and therefore to make use of the plugin's animations. For this, Unreals ARTv1 Maya plugin was used.
+                        </p>
+                        <p>
+                            The key component to giving our character a custom feel in the animations is a state machine of
+                            small additive animations and poses built on top of the plugin system, mainly controlling the upperbody region.
+                            Full body root motion animations are used for custom animation bits, such as being hit by an enemy or pulling a lever.
+                        </p>
+                        <div class="col-12 col-md-12 mt-sm-4 mt-md-0 mb-4 ms-auto">
+                            <a href="assets/img/meruui-additive-anim_opt.gif" data-lightbox="meruui-anim-gif">
+                                <img class="img-fluid d-flex ms-auto me-auto" src="assets/img/meruui-additive-anim_opt.gif" width="480" height="270" alt="Meruui Animation Gif">
+                            </a>
+                        </div>
+                        <p>
+                            The logic for combining animations and gameplay elements was mostly build around a range of global events,
+                            such as pressing a certain key, interacting with an object or entering different movement states.
+                            This event logic was also used for scripting level and gameplay-events in the demo.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Conclusion</h5>
+                        </div>
+                        <p>
+                            In retrospect, I'm very pleased with the visual, athmospheric and fluid to play result of the prototype.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Images</h5>
+                        </div>
+                        <div class="row gy-2">
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/meruui-gameplay-1.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-1-small.jpg" width="320" height="180" alt="Meruui Gameplay 01">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/meruui-gameplay-2.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-2-small.jpg" width="320" height="180" alt="Meruui Gameplay 02">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/meruui-gameplay-3.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-3-small.jpg" width="320" height="180" alt="Meruui Gameplay 03">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/char-laitari-2.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/char-laitari-2-small.jpg" width="320" height="356" alt="Meruui Laitari 01">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/char-laitari-1.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/char-laitari-1-small.jpg" width="320" height="356" alt="Meruui Laitari 02">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/char-halkuruui.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/char-halkuruui-small.jpg" width="320" height="356" alt="Meruui Halkuruui">
+                                </a>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-4">
+                                <a href="assets/img/char-riutuai.jpg" data-lightbox="meruui-images">
+                                    <img class="img-fluid img-gallery" src="assets/img/char-riutuai-small.jpg" width="320" height="356" alt="Meruui Riutuai">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="content-text-section-small">
+                            <h5>Gameplay</h5>
+                        </div>
+                        <iframe class="embedded-video" src="https://www.youtube.com/embed/_Y69KTFtUTA"></iframe>
                     </div>
-                    <p>
-                        The scope of the prototype was one polished level of an actual game.
-                        I was responsible for programming the prototype as well as creating the shaders,
-                        the user interface and modeling, texturing and animating the main character and creatures.
-                        All other art was created by my team members.
-                    </p>
-                    <p>
-                        My main focus throughout the project was to take an deeper look into building a third person control
-                        and animation system with combat elements based on the
-                        <a href="https://youtu.be/yTniZCOCY7o">Advanced Locomotion System V3</a>
-                        plugin by LongmireLocomotion and Unreals default movement component.
-                    </p>
-                    <p>
-                        The first challenge was to model and rig a humanoid character and make it compatible with Unreals skeleton
-                        and therefore to make use of the plugin's animations. For this, Unreals ARTv1 Maya plugin was used.
-                    </p>
-                    <p>
-                        The key component to giving our character a custom feel in the animations is a state machine of
-                        small additive animations and poses built on top of the plugin system, mainly controlling the upperbody region.
-                        Full body root motion animations are used for custom animation bits, such as being hit by an enemy or pulling a lever.
-                    </p>
-                    <div class="col-12 col-md-12 mt-sm-4 mt-md-0 mb-4 ms-auto">
-                        <a href="assets/img/meruui-additive-anim_opt.gif" data-lightbox="meruui-anim-gif">
-                            <img class="img-fluid d-flex ms-auto me-auto" src="assets/img/meruui-additive-anim_opt.gif" width="480" height="270" alt="Meruui Animation Gif">
-                        </a>
-                    </div>
-                    <p>
-                        The logic for combining animations and gameplay elements was mostly build around a range of global events,
-                        such as pressing a certain key, interacting with an object or entering different movement states.
-                        This event logic was also used for scripting level and gameplay-events in the demo.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Conclusion</h5>
-                    </div>
-                    <p>
-                        In retrospect, I'm very pleased with the visual, athmospheric and fluid to play result of the prototype.
-                    </p>
-                    <div class="content-text-section-small">
-                        <h5>Images</h5>
-                    </div>
-                    <div class="row gy-2">
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/meruui-gameplay-1.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-1-small.jpg" width="320" height="180" alt="Meruui Gameplay 01">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/meruui-gameplay-2.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-2-small.jpg" width="320" height="180" alt="Meruui Gameplay 02">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/meruui-gameplay-3.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/meruui-gameplay-3-small.jpg" width="320" height="180" alt="Meruui Gameplay 03">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/char-laitari-2.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/char-laitari-2-small.jpg" width="320" height="356" alt="Meruui Laitari 01">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/char-laitari-1.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/char-laitari-1-small.jpg" width="320" height="356" alt="Meruui Laitari 02">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/char-halkuruui.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/char-halkuruui-small.jpg" width="320" height="356" alt="Meruui Halkuruui">
-                            </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-4">
-                            <a href="assets/img/char-riutuai.jpg" data-lightbox="meruui-images">
-                                <img class="img-fluid img-gallery" src="assets/img/char-riutuai-small.jpg" width="320" height="356" alt="Meruui Riutuai">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="content-text-section-small">
-                        <h5>Gameplay</h5>
-                    </div>
-                    <iframe class="embedded-video" src="https://www.youtube.com/embed/_Y69KTFtUTA"></iframe>
                 </div>
             </div>
         </div>
     </div>
+    <div class="content-end"></div>
 </div>
-<div class="content-end"></div>

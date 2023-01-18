@@ -1,0 +1,102 @@
+<div class="position-relative">
+    <div id="site_background"></div>
+    <div id="site_header"></div>
+    <div class="content-text">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-9 col-lg-7">
+                    <div class="clearfix">
+                        <p>
+                            By studying the
+                            <a href="https://dev.epicgames.com/community/learning/paths/Z4/lyra-starter-game" target="_blank">Lyra Starter Game</a>
+                            example and looking for a clean way to implement match-based multiplayer modes for an RTT game,
+                            the Lyra Experience and Lyra Game Phase systems provided a good starting point to do so.
+                        </p>
+                        <p>
+                            Lyra Starter Game is a free and complete game base for a match-based
+                            third-person multiplayer shooter from Epic Games.
+                            It implements the latest features of Unreal Engine 5 and
+                            is a perfect starting point or learning resource for own games.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Starting Point</h5>
+                        </div>
+                        <p>
+                            Based on the Lyra Experience and Game Phase systems, I created the custom
+                            Game Feature Experience plugin and extended Game Phases with similarly functioning Player Phases.
+                        </p>
+                        <p>
+                            The goal of these modifications is to get a more modular approach to implementing game modes
+                            and to split the complexity of such modes into separate classes and pieces.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Game Feature Experience Plugin</h5>
+                        </div>
+                        <p>
+                            Lyra Experiences uses the
+                            <a href="https://docs.unrealengine.com/latest/en-US/game-features-and-modular-gameplay-in-unreal-engine/" target="_blank">Game Feature and Modular Gameplay</a>
+                            plugins of Unreal Engine 5 to replace most of the functionality you would implement in the regular Game Mode classes.
+                        </p>
+                        <p>
+                            When loading a level, an Experience Data Asset defines the plugins to load and
+                            actions to perform to dynamically add content and functionality to the game as needed.
+                            For example, instead of implementing specific logic in the Game Mode or other game framework classes themselves,
+                            they are extended by components implementing this logic.
+                            When the level is left, these extensions are removed again.
+                        </p>
+                        <p>
+                            Which actions and plugins are used can be easily changed in the Experience Data during design time.
+                            This makes it easy to swap out certain content or functionality while testing different implementations.
+                        </p>
+                        <p>
+                            For the custom approach, the system was moved to a separate plugin which can be shared between different projects.
+                            The state machine, managing loading and unloading of plugins and actions,
+                            has been reworked as a task-based subsystem capable of outlasting level changes.
+                        </p>
+                        <p>
+                            Main advantages of the rework are:
+                        </p>
+                        <ul>
+                            <li>Plugin can be shared between projects.</li>
+                            <li>Separation of functionality into multiple classes and tasks, which simplifies later changes or extensions.</li>
+                            <li>Persistent state of the subsystem can be used to load/unload only changing game feature plugins.</li>
+                        </ul>
+                        <div class="content-text-section-small">
+                            <h5>Game und Player Phase Abilities</h5>
+                        </div>
+                        <p>
+                            To make the game mode even more modular, Lyra uses Unreal's
+                            <a href="https://docs.unrealengine.com/latest/en-US/gameplay-ability-system-for-unreal-engine/" target="_blank">Gameplay Ability System</a>
+                            to implement so-called Game Phase Abilities. These abilities represent different phases of a match,
+                            each containing its own functionality. The phases are identified by Gameplay Tags and
+                            use the tag hierarchy to also support subphases.
+                        </p>
+                        <p>
+                            For example, a match may have a general pre, playing, and post phase.
+                            The playing phase may have a "sudden death" subphase which is triggered when certain conditions are met.
+                            The playing phase remains active until the subphase starts the overall post phase, ultimately ending itself and its parent phase.
+                        </p>
+                        <p>
+                            For our RTT game idea, it was necessary that each player can have his own phases as well.
+                            Think of Battlefield, where you can stay in a spawn screen independent of the actual running match.
+                            Which phase the player starts in when entering the game during a match can be determined on the server by the overall game phase.
+                        </p>
+                        <p>
+                            Player phases are implemented similarly to Game Phases, but replication is a bit more tricky
+                            since they run on both server and owning client, not only on server.
+                        </p>
+                        <p>
+                            Main advantages are:
+                        </p>
+                        <ul>
+                            <li>Robust and easier to handle solution for implementing independent game and player phases.</li>
+                            <li>Replication of phases is mostly handled by the existing Gameplay Ability System.</li>
+                            <li>Fully implementable in Blueprints for fast iteration speed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-end"></div>
+</div>

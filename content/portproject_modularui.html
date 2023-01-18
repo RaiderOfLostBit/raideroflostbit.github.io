@@ -1,0 +1,101 @@
+<div class="position-relative">
+    <div id="site_background"></div>
+    <div id="site_header"></div>
+    <div class="content-text">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-9 col-lg-7">
+                    <div class="clearfix">
+                        <p>
+                            After moving from Unreal Engine 4 to Unreal Engine 5, the best improvement besides
+                            the stunning visual upgrades is the engine's focus on a more modular approach to game systems.
+                        </p>
+                        <p>
+                            Along with the existing <a href="https://docs.unrealengine.com/latest/en-US/gameplay-ability-system-for-unreal-engine/" target="_blank">Gameplay Ability System</a>
+                            and <a href="https://docs.unrealengine.com/latest/en-US/ProgrammingAndScripting/Tags/" target="_blank">Gameplay Tags</a>,
+                            the new <a href="https://docs.unrealengine.com/latest/en-US/game-features-and-modular-gameplay-in-unreal-engine/" target="_blank">Game Feature, Modular Gameplay</a>
+                            and <a href="https://docs.unrealengine.com/latest/en-US/data-registries-in-unreal-engine/" target="_blank">Data Registry</a>
+                            plugins are really pushing the  ability to separate game systems into their own modular pieces.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Starting Point</h5>
+                        </div>
+                        <p>
+                            As I began to learn how the plugins worked, mainly using the
+                            <a href="https://dev.epicgames.com/community/learning/paths/Z4/lyra-starter-game" target="_blank">Lyra Starter Game</a>
+                            as an example, the idea came to my mind to use the modular approach for
+                            handling the user interface in an RTT game project I was working on.
+                        </p>
+                        <p>
+                            Based on the Data Registry,
+                            <a href="https://docs.unrealengine.com/latest/en-US/common-ui-plugin-for-advanced-user-interfaces-in-unreal-engine/" target="_blank">Common UI</a>,
+                            Common Game (Lyra) and UI Extensions (Lyra) plugins, the modular approach was implemented.
+                            The goal was to loosen dependencies within the UI flow and provide the ability to dynamically
+                            extend the UI from various independent plugin sources as needed.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Data Registry Plugin</h5>
+                        </div>
+                        <p>
+                            The idea makes heavy use of the Data Registry plugin.
+                            This plugin consists of global Data Registry assets that can be extended throughout
+                            the project from various Data Table sources.
+                            A single registry entry is defined by a unique name and an arbitrary data structure.
+                            This structure must be identical for the entire registry.
+                        </p>
+                        <p>
+                            Main advantages are:
+                        </p>
+                        <ul>
+                            <li>Data sources can be added and removed at runtime as needed.</li>
+                            <li>Namespaces for unique names can be based on Gameplay Tags so their hierarchy can be used.</li>
+                            <li>Registry entries can be overriden by data sources with higher priority.</li>
+                        </ul>
+                        <div class="content-text-section-small">
+                            <h5>Custom Approach</h5>
+                        </div>
+                        <p>
+                            For the custom User Interface, a Data Registry is defined for widget references.
+                            Unique names are handled by Gameplay Tags, and the data structure
+                            contains a soft reference to the actual widget class to display.
+                        </p>
+                        <p>
+                            Now, if you want to create a widget, only its Gameplay Tag is required to find the widget
+                            reference and display it in the UI. Since the widget classes are implemented as soft references,
+                            loading times must be respected.
+                            The Common Game (Primary Game Layout) and Common UI (Lazy Widget) plugins can be used to simplify this.
+                        </p>
+                        <p>
+                            Since Gameplay Tags are used as keys, their hierarchy can be utilized to dynamically populate a tab list,
+                            for example, by gathering all direct child tags of a base tag and searching the registry for available widget data entries.
+                            By assigning different priorities to data sources, the displayed widgets can be easily changed
+                            if the same key is overwritten. This can be used to create a basic UI as a programmer,
+                            which can later be replaced by a fully designed variant of an artist.
+                        </p>
+                        <p>
+                            In conjunction with Unreal's Game Feature plugin, UI implementations can be spread across
+                            multiple plugins and are combined when the required features are loaded.
+                            In theory, this could be used to swap out the entire interface design,
+                            for example in a live service when switching to a Christmas theme.
+                        </p>
+                        <p>
+                            Main advantages of the approach:
+                        </p>
+                        <ul>
+                            <li>High flexibility and iteration speed in User Interface creation.</li>
+                            <li>No more hard dependencies on widget classes, only names or Gameplay Tags are used.</li>
+                            <li>Game Feature plugins can be used to encapsulate UI content and load it only when needed.</li>
+                        </ul>
+                        <p>
+                            Caveats:
+                        </p>
+                        <ul>
+                            <li>Higher complexity and harder to understand because loose dependencies are based on names or Gameplay Tags only.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-end"></div>
+</div>

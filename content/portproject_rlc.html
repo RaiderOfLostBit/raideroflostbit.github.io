@@ -1,0 +1,92 @@
+<div class="position-relative">
+    <div id="site_background"></div>
+    <div id="site_header"></div>
+    <div class="content-text">
+        <div class="container-lg">
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-9 col-lg-7">
+                    <div class="clearfix">
+                        <p>
+                            Since I played <a href="https://en.wikipedia.org/wiki/World_in_Conflict" target="_blank">World in Conflict</a>
+                            back in the day, I wanted to create a game featuring a similar level of dynamic terrain deformation.
+                            So when I started to develop my own RTS together with two friends, this was one of the first fixed features to be implemented.
+                        </p>
+                        <p>
+                            A few months later, it resulted in my Runtime Landscape Collision system for Unreal Engine.
+                            First developed for Unreal Engine 4, it was later ported to Unreal Engine 5.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Starting Point</h5>
+                        </div>
+                        <p>
+                            Prior to creating a custom solution, the free version of
+                            <a href="https://www.unrealengine.com/marketplace/en-US/product/voxel-plugin-free" target="_blank">Voxel Plugin</a>
+                            for Unreal was tested. However, to avoid problems with other previously created custom tools
+                            such as the <a class="force-link" onclick="changeContent('project-rvtpainting');">RVT Painting Plugin</a>,
+                            it was necessary to use the built-in landscape.
+                        </p>
+                        <p>
+                            Based on this requirement, the system creates a runtime copy of Unreal's landscape collision data.
+                            The duplicated data is used to modify collision information based on heightmaps, leading to a deformation of the landscape.
+                        </p>
+                        <div class="content-text-section-small">
+                            <h5>Development</h5>
+                        </div>
+                        <p>
+                            The first major challenge was to understand how the collision of a landscape is generated and handled.
+                            Landscapes in Unreal use the heightfield collision implementation of the underlying physics system
+                            (<a href="https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxguide/Index.html" target="_blank">Nvidia PhysX</a> in Unreal Engine 4,
+                            <a href="https://docs.unrealengine.com/latest/en-US/physics-in-unreal-engine/" target="_blank">Chaos</a> in Unreal Engine 5).
+                            Both systems are fortunately capable of adjusting this information at runtime.
+                        </p>
+                        <p>
+                            A heightfield is basically a grid of vertices, each storing its own height information.
+                            So a heightfield can only be deformed in the vertical axis, which makes things much easier.
+                        </p>
+                        <p>
+                            After studying how the landscape is deformed using the built-in editor tools,
+                            the idea was to create a decal like system using heightmaps to provide the deformation information.
+                            These 'heightmap-decals' are captured to render targets and converted into relevant height information
+                            using a custom shader-based material solution.
+                        </p>
+                        <p>
+                            Now the performance-intensive part is reading the height from the render targets and updating the information
+                            of each affected vertex. Reading the texture is done asynchronously, based on the approach Unreal uses
+                            while editing the landscape in editor. Updating the vertices afterwards is almost synchronous, using Unreal's
+                            <a href="https://isaratech.com/ue4-improving-speed-with-parallelfor/" target="_blank">ParallelFor</a> implementation.
+                        </p>
+                        <p>
+                            Vertex information is first updated in a custom cache, so changes can be reverted, for example,
+                            if you want to place a building on a crater field. After the cache is updated, changes are pushed to the underlying physics layer.
+                        </p>
+                        <p>
+                            To reflect changes in collision, the visual landscape representation is updated by altering
+                            the World Position Offset of each landscape component based on the height information
+                            of the processed render targets.
+                            Render bounds are adjusted to reflect these changes to avoid visual glitches.
+                        </p>
+                        <p>
+                            The main advantages of the system are:
+                        </p>
+                        <ul>
+                            <li>Designer-friendly deformation of the native Unreal Engine landscape at runtime.</li>
+                            <li>Support of additional creation of hole masks at runtime.</li>
+                        </ul>
+                        <p>
+                            Caveats:
+                        </p>
+                        <ul>
+                            <li>No support for World Composition or World Partition.</li>
+                            <li>No support for dedicated servers (because of render target usage).</li>
+                        </ul>
+                        <div class="content-text-section-small">
+                            <h5>Overview</h5>
+                        </div>
+                        <iframe class="embedded-video" src="https://www.youtube.com/embed/h8gIzLltuog"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-end"></div>
+</div>

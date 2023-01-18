@@ -82,27 +82,52 @@ function getProjectItem(/*string*/hash, items) {
 
 /* Prepares a content site for display. */
 function prepareProjectPage(item) {
+    // Find and create the site background
+    {
+        let siteBackground = document.getElementById('site_background');
+        if(siteBackground)
+        {
+            siteBackground.classList.add('position-absolute', 'h-100', 'w-100');
+            siteBackground.style.pointerEvents = 'none';
+
+            siteBackground.innerHTML = `
+                <div class="container-lg h-100">
+                    <div class="row justify-content-center h-100">
+                        <div class="col-12 col-md-10 col-lg-8" style="background: #eeeeee; z-index: -1"></div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
     if(item && item.page)
     {
         // Find and create the site header
-        let siteHeader = document.getElementById('site_header');
-        if(siteHeader)
         {
-            // Create Tags
-            let Tags = "";
-            for(let i = 0; i < item.tags.length; i++)
+            let siteHeader = document.getElementById('site_header');
+            if(siteHeader)
             {
-                Tags += `
-                    <div class="col-auto">
-                        <div class="tag-item tag-item-style-light">${item.tags[i]}</div>
-                    </div>
-                `;
-            }
-            // Assemble the header
-            siteHeader.innerHTML = `
+                siteHeader.classList.add('content-section');
+
+                let Tags = "";
+                if(item.tags)
+                {
+                    // Create Tags
+                    for(let i = 0; i < item.tags.length; i++)
+                    {
+                        Tags += `
+                            <div class="col-auto">
+                                <div class="tag-item tag-item-style-light">${item.tags[i]}</div>
+                            </div>
+                        `;
+                    }
+                }
+
+                // Assemble the header
+                siteHeader.innerHTML = `
                 <div class="container-lg">
                     <div class="row justify-content-center">
-                        <div class="col-11 col-md-9 col-lg-9">
+                        <div class="col-11 col-md-11 col-lg-9">
                             <div class="article-header-container">
                                 <div class="article-header-overlay" style="background: 50% url('${item.page.image}'); background-size: cover;"></div>
                                 <div class="article-header-overlay">
@@ -122,6 +147,7 @@ function prepareProjectPage(item) {
                     </div>
                 </div>
             `;
+            }
         }
     }
 }

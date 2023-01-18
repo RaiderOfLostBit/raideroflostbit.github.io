@@ -24,13 +24,14 @@ h1, h2, h3, h4, h5, h6, .site-title {
     font-family: var(--font-family-secondary);
 }
 
-a {
+a, a.force-link {
     color: var(--secondary-color-highlight);
     text-decoration: none;
     transition: color 0.25s;
+    cursor: pointer;
 }
 
-a:hover {
+a:hover, a:hover.force-link {
     color: var(--secondary-color-bright);
 }
 
@@ -287,6 +288,23 @@ a:hover {
     .site-footer-col {
         margin-top: 0;
     }
+}
+
+/** Only used for desktop only style class */
+@media (max-width: 767px) {
+    .desktop-only {
+        display: none;
+    }
+}
+
+/** Special definitions for site back */
+@media (max-width: 992px) {
+    .site-back-none {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
     .site-back {
         display: block;
         z-index: 555;
@@ -303,13 +321,6 @@ a:hover {
         position: fixed !important;
         top: 0;
         margin-top: 0;
-    }
-}
-
-/** Only used for desktop only style class */
-@media (max-width: 768px) {
-    .desktop-only {
-        display: none;
     }
 }
 
