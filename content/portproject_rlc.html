@@ -34,12 +34,14 @@
                         </div>
                         <p>
                             The first major challenge was to understand how the collision of a landscape is generated and handled.
+                            A good starting point to understand the basic setup of a landscape can be found in the
+                            <a href="https://docs.unrealengine.com/latest/en-US/landscape-technical-guide-in-unreal-engine/" target="_blank">Unreal Documentation</a>.
+                        </p>
+                        <p>
                             Landscapes in Unreal use the heightfield collision implementation of the underlying physics system
                             (<a href="https://gameworksdocs.nvidia.com/PhysX/4.1/documentation/physxguide/Index.html" target="_blank">Nvidia PhysX</a> in Unreal Engine 4,
                             <a href="https://docs.unrealengine.com/latest/en-US/physics-in-unreal-engine/" target="_blank">Chaos</a> in Unreal Engine 5).
                             Both systems are fortunately capable of adjusting this information at runtime.
-                        </p>
-                        <p>
                             A heightfield is basically a grid of vertices, each storing its own height information.
                             So a heightfield can only be deformed in the vertical axis, which makes things much easier.
                         </p>
@@ -80,7 +82,7 @@
                             <li>No support for dedicated servers (because of render target usage).</li>
                         </ul>
                         <div class="content-text-section-small">
-                            <h5>Overview</h5>
+                            <h5>Demonstration</h5>
                         </div>
                         <iframe class="embedded-video" src="https://www.youtube.com/embed/h8gIzLltuog"></iframe>
                     </div>

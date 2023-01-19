@@ -30,7 +30,7 @@ const projects_gamedev =
             },
             page: {
                 title: "Inari",
-                image: "assets/img/inari-title-small.jpg",
+                image: "assets/img/inari-title.jpg",
             }
         },
         {
@@ -44,7 +44,7 @@ const projects_gamedev =
             },
             page: {
                 title: "Meruui",
-                image: "assets/img/meruui-title-small.jpg",
+                image: "assets/img/meruui-title.jpg",
             }
         },
         {
@@ -58,7 +58,7 @@ const projects_gamedev =
             },
             page: {
                 title: "Der letzte Bus",
-                image: "assets/img/dlb-title-small.jpg",
+                image: "assets/img/dlb-title.jpg",
             }
         },
         {
@@ -72,7 +72,7 @@ const projects_gamedev =
             },
             page: {
                 title: "2446 - Anthropocene Rebirth",
-                image: "assets/img/anrebirth-title-small.jpg",
+                image: "assets/img/anrebirth-title.jpg",
             }
         },
         {
@@ -86,7 +86,7 @@ const projects_gamedev =
             },
             page: {
                 title: "RVT Painting Plugin",
-                image: "assets/img/rvtpainting-title-small.jpg"
+                image: "assets/img/rvtpainting-title.jpg"
             }
         },
         {
@@ -95,12 +95,12 @@ const projects_gamedev =
             card: {
                 label: "Instance Scatter Plugin",
                 description: "Custom system to scatter mesh instances across defined level areas implemented in C++",
-                image: "assets/img/uetools1-thumbnail.jpg",
+                image: "assets/img/placeholder-thumbnail.jpg",
                 year: "2022"
             },
             page: {
                 title: "Instance Scattering",
-                image: "assets/img/instscatter-title-small.jpg",
+                image: "assets/img/instscatter-title.jpg",
             }
         },
         {
@@ -109,12 +109,12 @@ const projects_gamedev =
             card: {
                 label: "Runtime Landscape Collision",
                 description: "Deformation system for Unreal Engine Landscapes implemented in C++",
-                image: "assets/img/uetools1-thumbnail.jpg",
+                image: "assets/img/placeholder-thumbnail.jpg",
                 year: "2022"
             },
             page: {
                 title: "Runtime Landscape Collision",
-                image: "assets/img/instscatter-title-small.jpg",
+                image: "assets/img/placeholder-title.jpg",
             }
         },
         {
@@ -123,12 +123,12 @@ const projects_gamedev =
             card: {
                 label: "Modular User Interface",
                 description: "Modular approach to user interface implementation using the latest Unreal Engine 5 features",
-                image: "assets/img/uetools1-thumbnail.jpg",
+                image: "assets/img/placeholder-thumbnail.jpg",
                 year: "2022"
             },
             page: {
                 title: "Modular User Interface",
-                image: "assets/img/instscatter-title-small.jpg",
+                image: "assets/img/placeholder-title.jpg",
             }
         },
         {
@@ -137,12 +137,12 @@ const projects_gamedev =
             card: {
                 label: "Lyra Experience Extensions",
                 description: "Extension of the Lyra Experience System for a modular game mode implementation",
-                image: "assets/img/uetools1-thumbnail.jpg",
+                image: "assets/img/placeholder-thumbnail.jpg",
                 year: "2023"
             },
             page: {
                 title: "Lyra Experience Extensions",
-                image: "assets/img/instscatter-title-small.jpg",
+                image: "assets/img/placeholder-title.jpg",
             }
         }
     ];
@@ -158,7 +158,7 @@ function postLoadAbout(/*string*/hash) {
     const project_about = {
         page: {
             title: "Hello there!",
-            image: "assets/img/instscatter-title-small.jpg",
+            image: "assets/img/placeholder-title.jpg",
         }
     }
 
