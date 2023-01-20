@@ -51,6 +51,15 @@
                             These 'heightmap-decals' are captured to render targets and converted into relevant height information
                             using a custom shader-based material solution.
                         </p>
+                        <div class="col-12 mt-4 position-relative" style="height: 0; padding-bottom: 36.41%">
+                            <a href="assets/img/rlc-overview.jpg" data-lightbox="rlc-overview">
+                                <img class="img-fluid position-absolute" src="assets/img/rlc-overview-small.jpg" width="747" height="272" alt="Runtime Landscape Collision Overview">
+                            </a>
+                        </div>
+                        <div class="content-image-text mb-4">
+                            On the left the landscape without deformation, in the middle the "Heightmap Decal" and on the right the deformed landscape.
+                            Textures created by another team member.
+                        </div>
                         <p>
                             Now the performance-intensive part is reading the height from the render targets and updating the information
                             of each affected vertex. Reading the texture is done asynchronously, based on the approach Unreal uses

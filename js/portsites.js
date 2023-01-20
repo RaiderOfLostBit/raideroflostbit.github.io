@@ -123,6 +123,12 @@ function prepareProjectPage(item) {
                     }
                 }
 
+                let titleStyleClass = "article-header-title-bright";
+                if(item.page.title_color_invert)
+                {
+                    titleStyleClass = "article-header-title-dark";
+                }
+
                 // Assemble the header
                 siteHeader.innerHTML = `
                 <div class="container-lg">
@@ -133,7 +139,7 @@ function prepareProjectPage(item) {
                                 <div class="article-header-overlay">
                                     <div class="container h-100">
                                         <div class="row h-100 justify-content-center align-items-center">
-                                            <h2>${item.page.title}</h2>
+                                            <h2 class="${titleStyleClass}">${item.page.title}</h2>
                                         </div>
                                     </div>
                                 </div>

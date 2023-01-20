@@ -44,6 +44,7 @@ const projects_gamedev =
             },
             page: {
                 title: "Meruui",
+                title_color_invert: true,
                 image: "assets/img/meruui-title.jpg",
             }
         },
@@ -81,7 +82,7 @@ const projects_gamedev =
             card: {
                 label: "RVT Painting Plugin",
                 description: "Custom Toolset for Unreal Engine Editor implemented in C++ and Blueprints",
-                image: "assets/img/uetools1-thumbnail.jpg",
+                image: "assets/img/rvtpainting-thumbnail.jpg",
                 year: "2022"
             },
             page: {
@@ -95,7 +96,7 @@ const projects_gamedev =
             card: {
                 label: "Instance Scatter Plugin",
                 description: "Custom system to scatter mesh instances across defined level areas implemented in C++",
-                image: "assets/img/placeholder-thumbnail.jpg",
+                image: "assets/img/instscatter-thumbnail.jpg",
                 year: "2022"
             },
             page: {
@@ -109,12 +110,12 @@ const projects_gamedev =
             card: {
                 label: "Runtime Landscape Collision",
                 description: "Deformation system for Unreal Engine Landscapes implemented in C++",
-                image: "assets/img/placeholder-thumbnail.jpg",
+                image: "assets/img/rlc-thumbnail.jpg",
                 year: "2022"
             },
             page: {
                 title: "Runtime Landscape Collision",
-                image: "assets/img/placeholder-title.jpg",
+                image: "assets/img/rlc-title.jpg",
             }
         },
         {
@@ -158,7 +159,8 @@ function postLoadAbout(/*string*/hash) {
     const project_about = {
         page: {
             title: "Hello there!",
-            image: "assets/img/placeholder-title.jpg",
+            title_color_invert: true,
+            image: "assets/img/about-title.jpg",
         }
     }
 
