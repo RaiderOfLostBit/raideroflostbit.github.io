@@ -124,12 +124,12 @@ const projects_gamedev =
             card: {
                 label: "Modular User Interface",
                 description: "Modular approach to user interface implementation using the latest Unreal Engine 5 features",
-                image: "assets/img/placeholder-thumbnail.jpg",
+                image: "assets/img/modularui-thumbnail.jpg",
                 year: "2022"
             },
             page: {
                 title: "Modular User Interface",
-                image: "assets/img/placeholder-title.jpg",
+                image: "assets/img/modularui-title.jpg",
             }
         },
         {
