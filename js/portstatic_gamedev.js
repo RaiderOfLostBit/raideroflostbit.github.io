@@ -138,12 +138,13 @@ const projects_gamedev =
             card: {
                 label: "Lyra Experience Extensions",
                 description: "Extension of the Lyra Experience System for a modular game mode implementation",
-                image: "assets/img/placeholder-thumbnail.jpg",
+                image: "assets/img/lyraee-thumbnail.jpg",
                 year: "2023"
             },
             page: {
                 title: "Lyra Experience Extensions",
-                image: "assets/img/placeholder-title.jpg",
+                title_color_invert: true,
+                image: "assets/img/lyraee-title.jpg",
             }
         }
     ];

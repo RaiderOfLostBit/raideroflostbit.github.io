@@ -37,6 +37,15 @@
                             <a href="https://docs.unrealengine.com/latest/en-US/game-features-and-modular-gameplay-in-unreal-engine/" target="_blank">Game Feature and Modular Gameplay</a>
                             plugins of Unreal Engine 5 to replace most of the functionality you would implement in the regular Game Mode classes.
                         </p>
+                        <div class="col-12 mt-4 position-relative" style="height: 0; padding-bottom: 36.41%">
+                            <a href="assets/img/lyraee-experience.jpg" data-lightbox="lyraee-experience">
+                                <img class="img-fluid position-absolute" src="assets/img/lyraee-experience-small.jpg" width="747" height="272" alt="Game Feature Experience Visualization">
+                            </a>
+                        </div>
+                        <div class="content-image-text mb-4">
+                            A complex Game Mode class on the right is replaced with an Experience Data Asset which
+                            defines individual components needed to create an experience.
+                        </div>
                         <p>
                             When loading a level, an Experience Data Asset defines the plugins to load and
                             actions to perform to dynamically add content and functionality to the game as needed.
@@ -81,6 +90,14 @@
                             Think of Battlefield, where you can stay in a spawn screen independent of the actual running match.
                             Which phase the player starts in when entering the game during a match can be determined on the server by the overall game phase.
                         </p>
+                        <div class="col-12 mt-4 position-relative" style="height: 0; padding-bottom: 36.41%">
+                            <a href="assets/img/lyraee-phases.jpg" data-lightbox="lyraee-phases">
+                                <img class="img-fluid position-absolute" src="assets/img/lyraee-phases-small.jpg" width="747" height="272" alt="Game Phases Visualization">
+                            </a>
+                        </div>
+                        <div class="content-image-text mb-4">
+                            Chart of possible game and player phases. Unfilled boxes represent the overall phases and filled boxes represent the subphases.
+                        </div>
                         <p>
                             Player phases are implemented similarly to Game Phases, but replication is a bit more tricky
                             since they run on both server and owning client, not only on server.

@@ -33,16 +33,29 @@
                             The goal was to loosen dependencies within the UI flow and provide the ability to dynamically
                             extend the UI from various independent plugin sources as needed.
                         </p>
+                        <p>
+                            The UI design you can see in the pictures was created by another team member, the implementation in Unreal was done by myself.
+                        </p>
                         <div class="content-text-section-small">
                             <h5>Data Registry Plugin</h5>
                         </div>
                         <p>
-                            The idea makes heavy use of the Data Registry plugin.
+                            The idea makes heavy use of the
+                            <a href="https://docs.unrealengine.com/latest/en-US/data-registries-in-unreal-engine/" target="_blank">Data Registry</a> plugin.
                             This plugin consists of global Data Registry assets that can be extended throughout
                             the project from various Data Table sources.
                             A single registry entry is defined by a unique name and an arbitrary data structure.
                             This structure must be identical for the entire registry.
                         </p>
+                        <div class="col-12 mt-4 position-relative" style="height: 0; padding-bottom: 36.41%">
+                            <a href="assets/img/modularui-registry.jpg" data-lightbox="modularui-registry">
+                                <img class="img-fluid position-absolute" src="assets/img/modularui-registry-small.jpg" width="747" height="272" alt="Modular UI Registry Asset">
+                            </a>
+                        </div>
+                        <div class="content-image-text mb-4">
+                            Screenshot of a Data Registry asset. Marked in blue is the used Gameplay Tag as base for unique names and the data structure.
+                            On the right you can see all current entries in the registry.
+                        </div>
                         <p>
                             Main advantages are:
                         </p>
@@ -72,6 +85,15 @@
                             if the same key is overwritten. This can be used to create a basic UI as a programmer,
                             which can later be replaced by a fully designed variant of an artist.
                         </p>
+                        <div class="col-12 mt-4 position-relative" style="height: 0; padding-bottom: 36.41%">
+                            <a href="assets/img/modularui-override.jpg" data-lightbox="modularui-override">
+                                <img class="img-fluid position-absolute" src="assets/img/modularui-override-small.jpg" width="747" height="272" alt="Modular UI Override Example">
+                            </a>
+                        </div>
+                        <div class="content-image-text mb-4">
+                            Basic UI with full functionality on the left side. In the middle a new source with higher priority is added,
+                            the result of the override is shown on the right.
+                        </div>
                         <p>
                             In conjunction with Unreal's Game Feature plugin, UI implementations can be spread across
                             multiple plugins and are combined when the required features are loaded.
